@@ -1,0 +1,251 @@
+{
+  "options": {
+    "formatter": "stylish",
+    "merge-default-rules": false
+  },
+  "files": {
+    "ignore": [
+      "app/common/theme/vendor/**/*.scss",
+      "app/mobile/theme/vendor/**/*.scss",
+      "app/mobile/theme/app.bugs.scss",
+      "app/mobile/pages/demoarea/**/*.scss",
+      "app/web/theme/vendor/**/*.scss"
+    ]
+  },
+  "rules": {
+    "extends-before-mixins": 1,
+    "extends-before-declarations": 1,
+    "placeholder-in-extend": 1,
+    "mixins-before-declarations": 0,
+    "one-declaration-per-line": 1,
+      "empty-line-between-blocks": 1,
+      "single-line-per-selector": 1,
+      "no-attribute-selectors": 0,
+      "no-color-hex": 0,
+      "no-color-keywords": 0,
+      "no-color-literals": 0,
+      "no-combinators": 0,
+      "no-css-comments": 1,
+      "no-debug": 1,
+    "no-disallowed-properties": 0,
+    "no-duplicate-properties": [
+      1,
+      { "exclude":["display"]}
+    ],
+    "no-empty-rulesets": 1,
+    "no-extends": 0,
+    "no-ids": 1,
+    "no-important": 0,
+    "no-invalid-hex": 1,
+    "no-mergeable-selectors": [
+      1,
+      {"whitelist" : []}
+    ],
+    "no-misspelled-properties": 1,
+    "no-qualifying-elements": 0,
+    "no-trailing-whitespace": 0,
+    "no-trailing-zero": 0,
+    "no-transition-all": 0,
+    "no-universal-selectors": 0,
+    "no-url-protocols": 0,
+    "no-vendor-prefixes": 0,
+    "no-warn": 0,
+    "property-units":[
+      1,
+      {
+        "global":["px","rem","%","vh","vw"],
+        "per-property": {
+          "letter-spacing": ["em","rem","px","pt"],
+          "box-shadow": ["em","rem","px","pt"],
+          "text-indent": ["em","rem","px","pt"],
+          "animation": ["em","rem","px","pt","s"],
+          "animation-delay": ["em","rem","px","pt","s"],
+          "animation-duration": ["em","rem","px","pt","s"],
+          "transition": ["em","rem","px","pt","s"],
+          "font-size": ["rem"]
+        }
+      }
+    ],
+    "force-attribute-nesting": 1,
+    "force-element-nesting": 1,
+    "force-pseudo-nesting": 1,
+    "class-name-format": [
+      1,
+      {
+        "allow-leading-underscore": true,
+        "convention": "hyphenatedbem"
+      }
+    ],
+    "function-name-format": [
+      1,
+      {
+        "allow-leading-underscore": true,
+        "convention": "hyphenatedlowercase"
+      }
+    ],
+    "id-name-format": 0,
+    "mixin-name-format": [
+      1,
+      {
+        "allow-leading-underscore": true,
+        "convention": "hyphenatedlowercase"
+      }
+    ],
+    "placeholder-name-format":[
+      1,
+      {
+        "allow-leading-underscore": true,
+        "convention": "^[base-]",
+        "convention-explanation": "All your placeholders need to be start from %base- .Example: %base-box"
+      }
+    ],
+    "variable-name-format": [
+      1,
+      {
+        "allow-leading-underscore": true,
+        "convention": "hyphenatedlowercase"
+      }
+    ],
+    "attribute-quotes": 1,
+    "bem-depth": 1,
+    "border-zero": 1,
+    "brace-style": 1,
+    "clean-import-paths": [
+      1,
+      {
+        "allow-leading-underscore": true,
+        "filename-extension": false
+      }
+    ],
+    "empty-args": 1,
+    "hex-length": [
+      1,
+      {
+        "style":"long"
+      }
+    ],
+    "hex-notation": 1,
+    "indentation": [
+      0,
+      {
+        "tab": 2
+      }
+    ],
+    "leading-zero": 0,
+    "nesting-depth": [
+      1,
+      {
+        "max-depth": 2
+      }
+    ],
+    "property-sort-order": [
+      1,
+      {
+        "order": [
+          "content",
+          "z-index",
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "float",
+          "display",
+          "vertical-align",
+          "visibility",
+          "flex-direction",
+          "flex-wrap",
+          "flex-flow",
+          "justify-content",
+          "align-items",
+          "align-content",
+          "order",
+          "flex-grow",
+          "flex-shrink",
+          "flex-basis",
+          "flex",
+          "align-self",
+          "overflow",
+          "overflow-x",
+          "overflow-y",
+          "min-width",
+          "width",
+          "max-width",
+          "min-height",
+          "height",
+          "max-height",
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left",
+          "background",
+          "background-color",
+          "background-image",
+          "background-repeat",
+          "background-attach",
+          "background-size",
+          "background-position",
+          "opacity",
+          "box-shadow",
+          "border",
+          "border-top",
+          "border-right",
+          "border-bottom",
+          "border-left",
+          "border-radius",
+          "font",
+          "font-family",
+          "font-size",
+          "font-weight",
+          "font-style",
+          "line-height",
+          "color",
+          "text-align",
+          "text-transform",
+          "text-decoration",
+          "text-overflow",
+          "white-space"
+        ]
+      }
+    ],
+    "pseudo-element": 1,
+    "quotes": [
+      1,
+      {
+        "styles": "single"
+      }
+    ],
+    "shorthand-values": 1,
+    "url-quotes": 1,
+    "variable-for-property": [
+      1,
+      {
+        "properties": [
+          "background",
+          "color"
+        ]
+      }
+    ],
+    "zero-unit": 0,
+    "space-after-comma": 1,
+    "space-before-colon": 1,
+    "space-after-colon": 1,
+    "space-before-brace": 1,
+    "space-before-bang": 1,
+    "space-after-bang": 0,
+    "space-between-parens": [
+      1,
+      {
+        "include": true
+      }
+    ],
+    "space-around-operator": 1,
+    "trailing-semicolon": 1
+  }
+}
