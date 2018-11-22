@@ -46,8 +46,11 @@ var pakageJSON = require('./package.json');
 //---------------------------------------------
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
-        proxy: "localhost:8080/kit-1/src/",
-        port: 8080
+        server: {
+            baseDir: './src/'
+        }
+        // proxy: "localhost:8080/your_folder_site/",
+        // port: 8080
     });
 
     gulp.watch("./src/scss/*/**.scss", ['sass']).on('change', browserSync.reload);
