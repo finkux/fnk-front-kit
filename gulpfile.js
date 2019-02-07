@@ -6,6 +6,8 @@
 // Settings
 // Server tasks
 // Styles tasks
+// Script tasks
+// Package task and production
 // Global task
 
 // Pollyfill
