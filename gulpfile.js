@@ -33,7 +33,7 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     argv 		= require('yargs').argv,
     zip         = require('gulp-zip'),
-    nodeMod     = require('find-node-modules'),
+    gcmq        = require('gulp-group-css-media-queries'),    
     reload      = browserSync.reload;
 
 // Settings
@@ -41,6 +41,8 @@ var gulp        = require('gulp'),
 // Get the sass lint options from a json file
 var scssLintOptions = require('./sass-lint.json');
 var pakageJSON = require('./package.json');
+// Get json config gulp file
+var paths = require('./config-gulp.json');
 
 
 
@@ -65,18 +67,18 @@ gulp.task('serve', ['sass'], function() {
 //---------------------------------------------
 // Compile sass into CSS & auto-inject into browsers
 
-gulp.task('sass', ['sass-lint'], function() {    
-    return gulp.src("./src/scss/main.scss")
+gulp.task('sass', ['sass-lint'], function(){
+    return gulp.src('./src/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(rename('styles.css'))
         .pipe(autoprefix('last 2 versions'))
-        .pipe(gulpif(argv.dev, sourcemaps.write()))
-        .pipe(gulp.dest('./src/dist/css/'))
+        .pipe(gcmq())
+        .pipe(gulpif(argv.dev, sourcemaps.write()))      
+        .pipe(gulp.dest('./dist/css/'))
         .pipe(gulpif(argv.prod, cssnano()))
         .pipe(gulpif(argv.prod, rename({suffix:'.min'})))
-        .pipe(gulp.dest('./src/dist/css/'));		
-  });
+        .pipe(gulp.dest('./dist/css/'))
+});  
   
 
 // Check sass to find syntax errors or warnings.
@@ -91,14 +93,16 @@ gulp.task('sass-lint', function() {
 // Script tasks
 //---------------------------------------------
 // Concat all js files
-gulp.task('jsc', function() {
-    return gulp.src([
-        './src/js/lib/*.js', 
-        './src/js/main.js'
-    ])
-      .pipe(concat('scripts.js'))
-      .pipe(gulp.dest('./src/dist/js/'));
-  });
+gulp.task('jsc', function () {
+    Object.keys(paths).forEach(val => {
+        return gulp.src(paths[val].js.orig)
+            .pipe(concat(paths[val].js.name))
+            .pipe(gulp.dest(paths[val].js.dest))
+            .pipe(gulpif(argv.prod, uglify()))
+            .pipe(gulpif(argv.prod, rename({suffix:'.min'})))
+            .pipe(gulpif(argv.prod, gulp.dest(paths[val].js.dest)))
+    });
+}); 
 
 // Package task and production
 //---------------------------------------------

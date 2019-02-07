@@ -1,0 +1,11 @@
+{    
+    "common": {
+        "js": {
+            "orig": [
+                "./src/js/main.js"
+            ],
+            "dest": "./dist/js/",
+            "name": "common.bundle.js"
+        }
+    }
+}
